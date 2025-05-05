@@ -26,8 +26,8 @@ Byte Pair Encoding (BPE) is a data compression and tokenization technique that:
 Clone the repository and install the required dependencies:
 
 ```bash
-git clone https://github.com/yourusername/tokenizer_from_scratch.git
-cd tokenizer_from_scratch
+git clone https://github.com/TokenBender/simplebpe.git
+cd simplebpe
 pip install -r requirements.txt
 ```
 
