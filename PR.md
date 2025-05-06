@@ -287,6 +287,16 @@ This document tracks all requirements for the BPE tokenizer implementation. Any 
 - **Priority**: Low
 - **Last Updated**: 2025-05-06
 
+### 31. Enhanced minbpe Features from Karpathy's Implementation
+- **Description**: Add missing features from Karpathy's official minbpe implementation
+- **Status**: ✅ COMPLETE
+- **Success Criteria**: Successfully implements special tokens, enhanced visualization, and benchmarking
+- **Test Cases**: Verify special tokens work with encoding/decoding, test visualization features
+- **Dependencies**: #28
+- **Implementation**: Added cells 14-20 to `minbpe.ipynb`
+- **Priority**: Medium
+- **Last Updated**: 2025-05-06
+
 ## Bugfix Requirements
 
 ### 18. Vocabulary Serialization Fix
@@ -324,3 +334,4 @@ This document tracks all requirements for the BPE tokenizer implementation. Any 
 | 2025-05-06 | #28 | Added and completed clean Karpathy-style minbpe implementation | Claude |
 | 2025-05-06 | #29 | Completed repository cleanup (removed section1 directory) | Claude |
 | 2025-05-06 | #30 | Added and completed removal of conclusion cell from minbpe.ipynb | Claude |
+| 2025-05-06 | #31 | Added and completed enhanced features from Karpathy's minbpe implementation | TokenBender |
