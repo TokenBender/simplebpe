@@ -63,22 +63,38 @@ The `minbpe.ipynb` notebook provides a clean, minimal implementation inspired by
 3. Encoding and Decoding Functions
 4. Tokenization Efficiency Metrics
 5. Visualization Tools
-6. Advanced Features (Regex Pre-tokenization)
+6. Advanced Features:
+   - Regex Pre-tokenization with GPT2/GPT4 Patterns
+   - Special Token Handling with configurable allowed_special parameter
+   - GPT4Tokenizer with byte shuffling for improved multilingual support
+   - Compatible Save/Load functionality in Karpathy's format
+   - Comprehensive benchmarking and edge case testing
 
 This implementation focuses on simplicity and readability while maintaining the essential functionality of a BPE tokenizer.
 
 ## Example
 
 ```python
-# Basic usage of the tokenizer
-tokenizer = BPETokenizer(vocab_size=500)
-tokenizer.train(training_text)
+# Basic usage of the base tokenizer
+tokenizer = Tokenizer()
+tokenizer.train(training_text, vocab_size=500)
 
 # Encode text to token IDs
 token_ids = tokenizer.encode("Hello, world!")
 
 # Decode token IDs back to text
 decoded_text = tokenizer.decode(token_ids)
+
+# Advanced usage with GPT4Tokenizer
+gpt4_tokenizer = GPT4Tokenizer()
+gpt4_tokenizer.train(training_text, vocab_size=1000)
+
+# Encode with special tokens
+tokens = gpt4_tokenizer.encode("Hello <|endoftext|> world!", allowed_special="all")
+
+# Save and load in Karpathy-compatible format
+gpt4_tokenizer.save_karpathy_format("my_tokenizer")
+loaded_tokenizer = GPT4Tokenizer.load_karpathy_format("my_tokenizer.model")
 ```
 
 ## Dependencies
@@ -86,7 +102,8 @@ decoded_text = tokenizer.decode(token_ids)
 - jupyter, notebook
 - numpy
 - matplotlib
-- tiktoken (for comparison)
+- regex (for advanced tokenization patterns)
+- tiktoken (optional, for comparison)
 
 ## Contributing
 

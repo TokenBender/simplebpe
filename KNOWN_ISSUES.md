@@ -60,7 +60,42 @@ Each issue is documented with the following information:
 
 ## Active Issues
 
-No active issues at this time.
+### COMP-001: Unicode Edge Case Handling in Tokenizers
+
+- **ID**: COMP-001
+- **Title**: Unicode Edge Case Handling in Tokenizers
+- **Category**: COMP
+- **Status**: Open
+- **Component**: Tokenization
+- **Priority**: P2 (Medium)
+- **Reporter**: TokenBender
+- **Assigned To**: Unassigned
+- **Created Date**: 2025-05-06
+- **Resolution Date**: N/A
+- **Related PRs**: N/A
+- **Description**: Our extensive edge case testing revealed potential issues with certain Unicode sequences in our tokenizer implementations. While most test cases pass, there are specific scenarios involving bidirectional text, complex emoji sequences, and zero-width characters that may not round-trip perfectly.
+- **Steps to Reproduce**:
+  1. Use the edge case testing cell in minbpe.ipynb
+  2. Pay particular attention to tests for RTL text, emoji sequences with modifiers, and bidirectional text
+- **Error Message/Stack Trace**: N/A (no errors, but inconsistent round-trip results)
+- **Investigation History**:
+  1. Created comprehensive Unicode edge case tests to evaluate tokenizer robustness
+  2. Identified specific categories where round-trip consistency is not guaranteed
+  3. Compared to baseline BPE implementations like tiktoken to understand industry standard behavior
+- **Root Cause**: 
+  1. Byte-level tokenization inherently has challenges with multi-byte Unicode sequences
+  2. The byte shuffling mechanism improves but doesn't completely solve all Unicode edge cases
+  3. Regex pattern-based splitting can sometimes produce different boundaries for complex scripts
+- **Files Related**: 
+  - `minbpe.ipynb` (all tokenizer implementations)
+- **Potential Solutions**:
+  1. Enhance regex patterns to better handle bidirectional text
+  2. Improve special token handling to preserve control characters
+  3. Add specific normalization for emoji and other complex sequences
+- **Impact Assessment**:
+  - Low impact for typical use cases with Latin and common scripts
+  - Medium impact for multilingual applications with bidirectional text
+  - Edge cases primarily affect very specific use cases
 
 ## Closed Issues
 
