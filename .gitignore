@@ -20,22 +20,13 @@ var/
 .installed.cfg
 *.egg
 
-# Virtual Environment
-venv/
-ENV/
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb.bak
 
-# IDE files
-.idea/
+# Editor files
 .vscode/
+.idea/
 *.swp
 *.swo
-
-# OS specific files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-**/.claude/settings.local.json
+EOF < /dev/null
