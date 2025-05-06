@@ -73,6 +73,49 @@ Create an educational, monolithic BPE tokenizer implementation as a Jupyter note
 - Comprehensive error handling covering all identified edge cases
 - Zero regression in test suite between implementation iterations
 
+## Automated Task Management and Commit Protocol
+
+1. **Task Structure Definition**
+   - All tasks must follow format `TASK-NNN: Brief description`
+   - Tasks categorized as: FEATURE, BUGFIX, REFACTOR, DOCS, TEST
+   - Each task includes: description, acceptance criteria, and related files
+
+2. **Automated Task Completion Workflow**
+   ```
+   <task-complete>
+   id: TASK-123
+   type: FEATURE|BUGFIX|REFACTOR|DOCS|TEST
+   title: Brief descriptive title
+   files_changed:
+     - path/to/file1.py
+     - path/to/file2.py
+   description: |
+     Detailed description of what was done to complete the task.
+     Multiple lines are allowed.
+   requirement_id: #N (from PR.md)
+   bug_id: BUG-NNN (from KNOWN_ISSUES.md, if applicable)
+   </task-complete>
+   ```
+
+3. **Project File Updates**
+   - When `<task-complete>` block is processed:
+     - PR.md: Update requirement status to COMPLETE
+     - KNOWN_ISSUES.md: Update bug status to RESOLVED (if applicable)
+     - Commit changes with standardized message:
+       - Format: `[TASK-NNN] type: title`
+       - Example: `[TASK-123] BUGFIX: Fix tokenization issue with Unicode characters`
+
+4. **Quality Assurance Requirements**
+   - All tests must pass before marking a task complete
+   - Changes must match original requirements
+   - Changes must be verified against acceptance criteria
+
+5. **Documentation Updates**
+   - All completed tasks must update relevant documentation
+   - PR.md: Add completion date, implementation details
+   - Add entry to the change log at the bottom of PR.md
+   - Link related tasks, bugs, and issues together
+
 ## Bug Tracking and Issue Resolution
 1. **Maintain a bug tracker in KNOWN_ISSUES.md**
    - Document each bug with a unique ID, description, and component affected
