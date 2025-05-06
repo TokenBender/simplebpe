@@ -309,6 +309,16 @@ This document tracks all requirements for the BPE tokenizer implementation. Any 
 - **Bug Reference**: BUG-001 in KNOWN_ISSUES.md
 - **Last Updated**: 2025-05-06
 
+### 32. Fix Cell Order in minbpe.ipynb
+- **Description**: Fix cell order issues in minbpe.ipynb causing execution errors
+- **Status**: ✅ COMPLETE
+- **Success Criteria**: All notebook cells execute successfully in sequential order
+- **Test Cases**: Execute all cells in order and verify no errors
+- **Dependencies**: #31
+- **Implementation**: Reordered cells in `minbpe.ipynb`
+- **Bug Reference**: BUG-002 in KNOWN_ISSUES.md
+- **Last Updated**: 2025-05-06
+
 ## Requirement Change Log
 
 | Date | Requirement ID | Change Description | Author |
@@ -335,3 +345,4 @@ This document tracks all requirements for the BPE tokenizer implementation. Any 
 | 2025-05-06 | #29 | Completed repository cleanup (removed section1 directory) | Claude |
 | 2025-05-06 | #30 | Added and completed removal of conclusion cell from minbpe.ipynb | Claude |
 | 2025-05-06 | #31 | Added and completed enhanced features from Karpathy's minbpe implementation | TokenBender |
+| 2025-05-06 | #32 | Added and completed cell order fix in minbpe.ipynb | TokenBender |
