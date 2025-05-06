@@ -105,10 +105,14 @@ Create an educational, monolithic BPE tokenizer implementation as a Jupyter note
        - Format: `[TASK-NNN] type: title`
        - Example: `[TASK-123] BUGFIX: Fix tokenization issue with Unicode characters`
 
-4. **Quality Assurance Requirements**
+4. **Quality Assurance and Commit Requirements**
    - All tests must pass before marking a task complete
    - Changes must match original requirements
    - Changes must be verified against acceptance criteria
+   - **MANDATORY**: Every completed task MUST be committed
+   - Commits MUST follow the format in step 3 with no exceptions
+   - Human user is ALWAYS the primary author of commits
+   - Code changes without commits are considered incomplete
 
 5. **Documentation Updates**
    - All completed tasks must update relevant documentation
@@ -131,15 +135,20 @@ Create an educational, monolithic BPE tokenizer implementation as a Jupyter note
    - Document exact environment conditions needed for reproduction
    - Script should serve as executable documentation of the issue
 
-3. **Bug Resolution Protocol**
-   - For any error encountered, first check KNOWN_ISSUES.md for similar problems
-   - Create a reproduction script to validate the issue consistently
-   - Develop fix verification tests that objectively confirm when the bug is fixed
-   - Test potential fixes in isolation before modifying production code
-   - Document each resolution approach with implementation details and outcomes
-   - Apply validated fixes to main codebase only after verification in isolation
-   - Update issue status promptly after resolution attempts
-   - If multiple approaches fail, add "Won't Fix" status with justification
+3. **Bug Resolution Protocol (Mandatory Sequential Steps)**
+   1. For any error encountered, first check KNOWN_ISSUES.md for similar problems
+   2. Create a reproduction script to validate the issue consistently
+   3. Develop fix verification tests that objectively confirm when the bug is fixed
+   4. Test potential fixes in isolation before modifying production code
+   5. Document each resolution approach with implementation details and outcomes
+   6. Apply validated fixes to main codebase only after verification in isolation
+   7. Update KNOWN_ISSUES.md with complete resolution documentation
+   8. Update PR.md to reflect the fixed requirement status
+   9. **MANDATORY**: Commit all changes with proper task-complete format (steps cannot be skipped)
+      - User is ALWAYS the primary author on commits
+      - Follow exact format from Automated Task Management section
+      - Include all changed files in the commit
+   10. If multiple approaches fail, add "Won't Fix" status with justification
 
 4. **Validation and Regression Testing**
    - Run all test scripts on the fixed code to verify resolution
@@ -148,7 +157,19 @@ Create an educational, monolithic BPE tokenizer implementation as a Jupyter note
    - Create validation scripts for similar potential issues
    - Update test coverage metrics after bug fix implementation
 
-5. **Learning from Failures**
+5. **Bug Fix Completion Checklist**
+   - [ ] Reproduction script created and verified
+   - [ ] Root cause identified and documented
+   - [ ] Fix implemented and validated in isolation
+   - [ ] KNOWN_ISSUES.md updated with complete resolution details
+   - [ ] PR.md updated to reflect fixed requirement status
+   - [ ] All changes committed with proper task-complete format
+   - [ ] Regression tests updated to include bug reproduction
+   - [ ] Lessons learned documented for future prevention
+   - [ ] All files containing fixes have been included in commit
+   Every bugfix is incomplete until ALL checklist items are confirmed
+
+6. **Learning from Failures**
    - Record lessons learned from each bug for future reference
    - Document patterns of common issues for proactive prevention
    - Create or update prevention protocols based on each bug resolution
