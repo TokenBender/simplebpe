@@ -339,19 +339,21 @@ This document tracks all requirements for the BPE tokenizer implementation. Any 
 
 ### 35. GPT4Tokenizer Implementation
 - **Description**: Add GPT4Tokenizer class compatible with tiktoken's cl100k_base
-- **Status**: 🔄 TODO
+- **Status**: ✅ COMPLETE
 - **Success Criteria**: Output matches tiktoken for test inputs
 - **Test Cases**: Compare tokenization results with tiktoken for various inputs
 - **Dependencies**: #33, #34
+- **Implementation**: `minbpe.ipynb` (cells 32-37)
 - **Priority**: High
 - **Last Updated**: 2025-05-06
 
 ### 36. Byte Shuffling Support
 - **Description**: Implement byte shuffling mechanism for GPT4 compatibility
-- **Status**: 🔄 TODO
+- **Status**: ✅ COMPLETE
 - **Success Criteria**: Correctly applies byte permutation during encoding/decoding
 - **Test Cases**: Verify encoding/decoding with byte shuffling produces correct results
 - **Dependencies**: #35
+- **Implementation**: `minbpe.ipynb` (cells 33, 35)
 - **Priority**: Medium
 - **Last Updated**: 2025-05-06
 
@@ -392,3 +394,5 @@ This document tracks all requirements for the BPE tokenizer implementation. Any 
 | 2025-05-06 | #31 | Added and completed enhanced features from Karpathy's minbpe implementation | TokenBender |
 | 2025-05-06 | #32 | Added and completed cell order fix in minbpe.ipynb | TokenBender |
 | 2025-05-06 | #33-37 | Added requirements for aligning with Karpathy's minbpe implementation | TokenBender |
+| 2025-05-06 | #35 | Completed GPT4Tokenizer Implementation with test cells | TokenBender |
+| 2025-05-06 | #36 | Completed Byte Shuffling Support as part of GPT4Tokenizer | TokenBender |
