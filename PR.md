@@ -319,6 +319,51 @@ This document tracks all requirements for the BPE tokenizer implementation. Any 
 - **Bug Reference**: BUG-002 in KNOWN_ISSUES.md
 - **Last Updated**: 2025-05-06
 
+### 33. Enhanced RegexTokenizer with GPT Patterns
+- **Description**: Update RegexTokenizer to support GPT2/GPT4 pattern splitting
+- **Status**: 🔄 TODO
+- **Success Criteria**: RegexTokenizer correctly splits text using GPT patterns
+- **Test Cases**: Compare tokenization with GPT pattern vs. simple pattern
+- **Dependencies**: #28, #31
+- **Priority**: High
+- **Last Updated**: 2025-05-06
+
+### 34. Improved Special Token Handling
+- **Description**: Enhance special token handling with allowed_special parameter
+- **Status**: 🔄 TODO
+- **Success Criteria**: Special tokens correctly handled with various allowed_special options
+- **Test Cases**: Test "all", "none", "none_raise", and custom sets of allowed tokens
+- **Dependencies**: #28, #31
+- **Priority**: Medium
+- **Last Updated**: 2025-05-06
+
+### 35. GPT4Tokenizer Implementation
+- **Description**: Add GPT4Tokenizer class compatible with tiktoken's cl100k_base
+- **Status**: 🔄 TODO
+- **Success Criteria**: Output matches tiktoken for test inputs
+- **Test Cases**: Compare tokenization results with tiktoken for various inputs
+- **Dependencies**: #33, #34
+- **Priority**: High
+- **Last Updated**: 2025-05-06
+
+### 36. Byte Shuffling Support
+- **Description**: Implement byte shuffling mechanism for GPT4 compatibility
+- **Status**: 🔄 TODO
+- **Success Criteria**: Correctly applies byte permutation during encoding/decoding
+- **Test Cases**: Verify encoding/decoding with byte shuffling produces correct results
+- **Dependencies**: #35
+- **Priority**: Medium
+- **Last Updated**: 2025-05-06
+
+### 37. Compatible Save/Load Functionality
+- **Description**: Update save/load to be compatible with Karpathy's format
+- **Status**: 🔄 TODO
+- **Success Criteria**: Successfully saves and loads in Karpathy's .model/.vocab format
+- **Test Cases**: Save, load, and verify tokenizer maintains identical behavior
+- **Dependencies**: #33, #34
+- **Priority**: Low
+- **Last Updated**: 2025-05-06
+
 ## Requirement Change Log
 
 | Date | Requirement ID | Change Description | Author |
@@ -346,3 +391,4 @@ This document tracks all requirements for the BPE tokenizer implementation. Any 
 | 2025-05-06 | #30 | Added and completed removal of conclusion cell from minbpe.ipynb | Claude |
 | 2025-05-06 | #31 | Added and completed enhanced features from Karpathy's minbpe implementation | TokenBender |
 | 2025-05-06 | #32 | Added and completed cell order fix in minbpe.ipynb | TokenBender |
+| 2025-05-06 | #33-37 | Added requirements for aligning with Karpathy's minbpe implementation | TokenBender |
