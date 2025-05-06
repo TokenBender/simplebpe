@@ -82,29 +82,55 @@ No active issues at this time.
   1. Open minbpe.ipynb
   2. Run cells in order
   3. Cell 18 (benchmarking) failed because it referenced regex_tokenizer before it was defined
+- **Error Message**: `NameError: name 'regex_tokenizer' is not defined`
 - **Investigation History**:
   1. Cells were added in a recent update to add features from Karpathy's implementation
   2. The order of cell execution matters - regression test cells should be self-contained
-  3. Found that the RegexTokenizer class needed to be defined before the benchmarking code
+  3. Found that not only was the RegexTokenizer class missing, but the regex_tokenizer instance was being referenced before definition
+  4. Created a test script (test_minbpe_notebook.py) to validate cell execution
+  5. Identified metadata issues in the notebook that caused additional errors
 - **Resolution Attempts**:
   1. **Approach**: Reorder cells to define dependencies before they're used
      - **Implementation**: Moved the RegexTokenizer class definition earlier in the notebook
-     - **Result**: Success - cells now execute in proper order
-  2. **Approach**: Restructured benchmarking code
-     - **Implementation**: Simplified benchmarking to remove unnecessary code
-     - **Result**: Success - benchmarking now runs correctly
-- **Root Cause**: Incorrect ordering of cells leading to reference errors
-- **Resolution**: Reordered cells and fixed benchmarking code to ensure proper execution order
+     - **Result**: Partial success - identified that the RegexTokenizer class was completely missing
+  
+  2. **Approach**: Add missing RegexTokenizer class
+     - **Implementation**: Added RegexTokenizer class with proper implementation
+     - **Result**: Partial success - still had issues with metadata and initialization
+
+  3. **Approach**: Add initialization for regex_tokenizer
+     - **Implementation**: Added a cell to create and train the regex_tokenizer instance
+     - **Result**: Partial success - metadata issues prevented execution
+
+  4. **Approach**: Fix notebook metadata issues
+     - **Implementation**: Created normalize_notebook.py script to fix metadata
+     - **Result**: Success - fixed metadata issues with markdown cells
+
+  5. **Approach**: Create comprehensive test script
+     - **Implementation**: Enhanced test_minbpe_notebook.py to validate and fix cell order
+     - **Result**: Success - script validated proper cell execution order
+- **Root Cause**: Missing RegexTokenizer class definition and incorrect cell ordering leading to reference errors
+- **Resolution**: 
+  1. Added missing RegexTokenizer class implementation
+  2. Added cell to initialize regex_tokenizer instance
+  3. Fixed notebook metadata issues
+  4. Created test script to validate cell execution
 - **Files Changed**: 
-  - `minbpe.ipynb`
+  - `minbpe.ipynb` (added cells 14-15, 20)
+  - `test_minbpe_notebook.py` (created)
+  - `normalize_notebook.py` (created)
 - **Lessons Learned**: 
   1. When adding new features to notebooks, always test executing cells in sequential order
   2. Ensure that cell dependencies are properly ordered
   3. Keep regression tests self-contained where possible
+  4. Create automated test scripts to validate notebook execution
+  5. Pay attention to notebook metadata which can cause execution errors
 - **Prevention Strategy**:
   1. Add clear dependency headers to cells
-  2. Consider adding cell dependency tests to validation
-  3. Use modular design within notebooks to reduce order dependency
+  2. Use automated test scripts for notebook validation
+  3. Document class dependencies explicitly
+  4. Use modular design within notebooks to reduce order dependency
+  5. Normalize notebook metadata regularly to prevent structural issues
 
 ### BUG-001: Vocabulary Serialization Error
 
@@ -176,6 +202,8 @@ No issues in this category yet.
 
 **Issue Distribution by Component:**
 - Vocabulary Management: 1
+- Notebook Structure: 1
 
 **Common Root Causes:**
 1. Data format assumptions: 1 issue
+2. Missing dependencies: 1 issue

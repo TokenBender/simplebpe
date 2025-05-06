@@ -120,18 +120,38 @@ Create an educational, monolithic BPE tokenizer implementation as a Jupyter note
 1. **Maintain a bug tracker in KNOWN_ISSUES.md**
    - Document each bug with a unique ID, description, and component affected
    - Record all approaches tried for each bug, both successful and unsuccessful
-   - Include error messages, stack traces, and detailed resolution attempts
+   - Include exact error messages, stack traces, and detailed resolution attempts
    - Identify root causes and final solutions for resolved issues
+   - Include metrics on bug frequency by component and common root causes
 
-2. **Bug Resolution Protocol**
+2. **Create Standalone Reproduction Test Scripts**
+   - Create a dedicated test script that reliably reproduces the bug in isolation
+   - Script must be self-contained and provide clear pass/fail criteria
+   - Include minimal dependencies and setup requirements
+   - Document exact environment conditions needed for reproduction
+   - Script should serve as executable documentation of the issue
+
+3. **Bug Resolution Protocol**
    - For any error encountered, first check KNOWN_ISSUES.md for similar problems
-   - Try previously successful approaches before attempting new solutions
-   - Document new bugs immediately upon discovery
+   - Create a reproduction script to validate the issue consistently
+   - Develop fix verification tests that objectively confirm when the bug is fixed
+   - Test potential fixes in isolation before modifying production code
+   - Document each resolution approach with implementation details and outcomes
+   - Apply validated fixes to main codebase only after verification in isolation
    - Update issue status promptly after resolution attempts
    - If multiple approaches fail, add "Won't Fix" status with justification
 
-3. **Learning from Failures**
+4. **Validation and Regression Testing**
+   - Run all test scripts on the fixed code to verify resolution
+   - Add the bug reproduction test to regression test suite
+   - Document all files changed during the resolution process
+   - Create validation scripts for similar potential issues
+   - Update test coverage metrics after bug fix implementation
+
+5. **Learning from Failures**
    - Record lessons learned from each bug for future reference
-   - Recognize when to give up on approaches that show little promise
-   - Document workarounds when perfect solutions aren't feasible
+   - Document patterns of common issues for proactive prevention
+   - Create or update prevention protocols based on each bug resolution
+   - Maintain test scripts for reuse in similar issues
    - Use known issues as input for design improvements
+   - Share insights through documented patterns and anti-patterns
