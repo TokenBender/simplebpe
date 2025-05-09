@@ -1,3 +1,6 @@
+## needs clean up, incomplete
+
+
 # Byte Pair Encoding (BPE) Tokenizer
 
 This repository contains an educational, comprehensive implementation of the Byte Pair Encoding (BPE) algorithm for tokenization, implemented as Jupyter notebooks with full parity to Andrej Karpathy's minbpe. The project focuses on clarity, educational value, and practical application.
