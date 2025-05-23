@@ -29,4 +29,21 @@ var/
 .idea/
 *.swp
 *.swo
-EOF < /dev/null
+
+# Test files
+test_*.py
+*_test.py
+temp/
+fix_*.py
+check_*.py
+verify_*.py
+*_fix.py
+*_fix.patch
+
+# Temporary and backup files
+*.bak
+*.backup
+*.tmp
+*.temp
+
+**/.claude/settings.local.json
